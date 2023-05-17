@@ -68,6 +68,7 @@ main = do
   startingPlayer <- randPlayer
   outcome <- game man startingPlayer Board.empty
   case outcome of
+    -- This will never happen
     Just player | player == man -> putStrLn "Humanity prevails another day!"
     Just _                      -> putStrLn "Skynet has taken over. Initiating self-destruction."
     Nothing                     -> putStrLn "A draw! Maybe mankind will prevail after all?"
