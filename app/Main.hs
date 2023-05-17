@@ -11,7 +11,6 @@ import qualified Player
 import qualified Skynet
 import           System.IO (hFlush, stdout)
 import           Text.Read (readMaybe)
-import qualified Board as Boad
 
 prompt :: Read a => String -> (a -> Bool) -> IO a
 prompt request validate = do
@@ -62,7 +61,6 @@ randPlayer = bool Player.X Player.O . even <$> GHC.Clock.getMonotonicTimeNSec
 
 main :: IO ()
 main = do
-  {-
   putStrLn "Welcome to the best game of tic-tac-toe you will ever play!"
   man <- prompt "Which symbol do you wish to play as? (X/O) " (const True)
   startingPlayer <- randPlayer
@@ -72,8 +70,3 @@ main = do
     Just player | player == man -> putStrLn "Humanity prevails another day!"
     Just _                      -> putStrLn "Skynet has taken over. Initiating self-destruction."
     Nothing                     -> putStrLn "A draw! Maybe mankind will prevail after all?"
-  -}
-
-  let optimalMove = Skynet.generateMove Player.X Boad.empty
-  print optimalMove
-  return ()
